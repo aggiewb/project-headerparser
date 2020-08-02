@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", (req, res) => {
-  res.sendFile(`${__dirname} /views/index.html`);
+  res.sendFile(`${__dirname}/views/index.html`);
 });
 
 const listener = app.listen(process.env.PORT, () => {
@@ -19,7 +19,7 @@ const listener = app.listen(process.env.PORT, () => {
 });
 
 app.get("/api/whoami", (req, res) => {
-
+  res.json({ipaddress: req.ip});
 });
 
 app.get("/api/hello", (req, res) => {
