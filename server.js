@@ -19,7 +19,11 @@ const listener = app.listen(process.env.PORT, () => {
 });
 
 app.get("/api/whoami", (req, res) => {
-  res.json({ipaddress: req.ip, language: req.headers["accept-language"]});
+  res.json({
+    ipaddress: req.ip, 
+    language: req.headers["accept-language"],
+    software: req.headers["user-agent"]
+  });
 });
 
 app.get("/api/hello", (req, res) => {
